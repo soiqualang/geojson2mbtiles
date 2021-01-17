@@ -23,4 +23,6 @@ docker run -it -d --name geojson2mbtiles -v E:/program_data/python/geojson2mbtil
 
 ```bash
 docker exec -it geojson2mbtiles /bin/sh
+
+python3.8 argu.py -input "input" -hallo "hallo" -xinchao "xinchao"
 ```
