@@ -8,7 +8,8 @@ RUN apt-get update && \
     apt-get install make && \
     apt-get -y install build-essential && \
     apt-get -y install libz-dev && \
+    apt-get -y install python3.8 && \
     make -j && \
-    make install && \
+    make install
 
 WORKDIR /app
