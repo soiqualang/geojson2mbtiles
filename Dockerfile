@@ -3,12 +3,12 @@ WORKDIR /app
 COPY tippecanoe ./tippecanoe
 
 WORKDIR /app/tippecanoe
-RUN apt-get update
-RUN apt-get install libsqlite3-dev
-RUN apt-get install make
-RUN apt-get install build-essential
-RUN apt-get install libz-dev
-RUN make -j
-RUN make install
+RUN apt-get update && \
+    apt-get -y install libsqlite3-dev && \
+    apt-get install make && \
+    apt-get -y install build-essential && \
+    apt-get -y install libz-dev && \
+    make -j && \
+    make install && \
 
 WORKDIR /app
