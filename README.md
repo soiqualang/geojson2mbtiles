@@ -26,3 +26,10 @@ docker exec -it geojson2mbtiles /bin/sh
 
 python3.8 argu.py -input "input" -hallo "hallo" -xinchao "xinchao"
 ```
+
+> Command
+
+```bash
+tippecanoe -z18 -o thamthucvat.mbtiles --drop-densest-as-needed thamthucvat.geojson
+tippecanoe -zg -o thamthucvat.mbtiles --drop-densest-as-needed thamthucvat.geojson
+```
