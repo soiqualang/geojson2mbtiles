@@ -1,6 +1,7 @@
 FROM ubuntu AS sys_base
 WORKDIR /app
 COPY tippecanoe ./tippecanoe
+COPY json2mbtiles.py .
 
 WORKDIR /app/tippecanoe
 RUN apt-get update && \

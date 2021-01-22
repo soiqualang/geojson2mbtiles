@@ -25,12 +25,26 @@ def arg_parsing_v2(params):
     return args
 
 # Main
-params=['geojson_folder_path','mbtiles_folder_path']
+params=['geojson_folder_path','mbtiles_folder_path','maxzoom']
 ARGS = arg_parsing_v2(params)
 
-foin=Path('/content/drive/Shared drives/soiqualang.chentreu/goolge_colab/json2mbtiles/geojson/')
-foout='/content/drive/Shared drives/soiqualang.chentreu/goolge_colab/json2mbtiles/mbtiles/'
+foin = Path(ARGS['geojson_folder_path'])
+foout = ARGS['mbtiles_folder_path']
+maxzoom = ARGS['maxzoom']
+# -zg: chương trình tự chọn để tối ưu
+# -z18: Đến mức zoom 18
+
+# print(foin)
+# print(foout)
+
+# foin=Path('/content/drive/Shared drives/soiqualang.chentreu/goolge_colab/json2mbtiles/geojson/')
+# foout='/content/drive/Shared drives/soiqualang.chentreu/goolge_colab/json2mbtiles/mbtiles/'
+
 for fjson in foin.glob('*.geojson'):
-    cmd='tippecanoe -zg -o "'+foout+'t_'+getFname(str(fjson))+'" --drop-densest-as-needed "'+str(fjson)+'"'
-    #print(cmd)
-    subprocess.Popen(cmd,shell=True)
+    # cmd='tippecanoe -zg -f -o "t_%s" --drop-densest-as-needed "%s"' % (getFname(str(fjson))[1],getFname(str(fjson))[0])
+    cmd='tippecanoe -z%s -f -o "%st_%s" --drop-densest-as-needed "%s"' % (maxzoom,foout,getFname(str(fjson))[1],fjson)
+    # print(cmd)
+    print('Start processing %s file' % (getFname(str(fjson))[0]))
+    process = subprocess.Popen(cmd,shell=True)
+    process.wait()
+    print('Done!')
