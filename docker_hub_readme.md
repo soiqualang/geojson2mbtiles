@@ -35,7 +35,7 @@ docker rm geojson2mbtiles
 ## Convert all geojson in folder
 
 ```txt
-D:\sync\websvr\docker\geojson2mbtiles>docker exec -it geojson2mbtiles python3.8 json2mbtiles.py -h
+docker exec -it geojson2mbtiles python3.8 json2mbtiles.py -h
 usage: json2mbtiles.py [-h] -geojson_folder_path GEOJSON_FOLDER_PATH -mbtiles_folder_path MBTILES_FOLDER_PATH -maxzoom MAXZOOM
 
 ArgumentParser by soiqualang
@@ -60,7 +60,7 @@ optional arguments:
 docker exec -it geojson2mbtiles python3.8 json2mbtiles.py -h
 
 # Convert all geojson in folder
-docker exec -it geojson2mbtiles python3.8 json2mbtiles.py -geojson_folder_path "/data/geojson2mbtiles/geojson/" -mbtiles_folder_path "/data/geojson2mbtiles/mbtiles/" -maxzoom g
+docker exec -it geojson2mbtiles python3.8 json2mbtiles.py -geojson_folder_path "/data/" -mbtiles_folder_path "/data/" -maxzoom g
 
 ```
 
