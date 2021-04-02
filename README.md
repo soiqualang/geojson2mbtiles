@@ -1,7 +1,7 @@
 # geojson2mbtiles
 Tool to convert GeoJson to Mbtiles
 
-https://hub.docker.com/repository/docker/soiqualang/geojson2mbtiles
+https://hub.docker.com/r/soiqualang/geojson2mbtiles
 
 > Test với Google Colab
 
