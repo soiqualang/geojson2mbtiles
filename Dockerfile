@@ -1,16 +1,18 @@
-FROM ubuntu AS sys_base
+FROM soiqualang/geojson2mbtiles AS sys_base
 WORKDIR /app
-COPY tippecanoe ./tippecanoe
-COPY json2mbtiles.py .
+COPY merge-mbtiles ./merge-mbtiles
+ 
+WORKDIR /app/merge-mbtiles
 
-WORKDIR /app/tippecanoe
+ENV TZ=Asia/Kolkata \
+DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && \
-    apt-get -y install libsqlite3-dev && \
-    apt-get install make && \
-    apt-get -y install build-essential && \
-    apt-get -y install libz-dev && \
-    apt-get -y install python3.8 && \
-    make -j && \
-    make install
+	apt-get -y install npm && \
+    npm install
 
+RUN apt-get -y install python3-pip && \
+	pip install --upgrade pip && \
+	pip install -U tpkutils
+    
 WORKDIR /app
